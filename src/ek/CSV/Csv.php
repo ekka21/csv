@@ -7,7 +7,7 @@ class Csv
 {
         protected $csv;
 
-        public function create(array $rows, array $header = [], $delimiter = ',')
+        public function create(array $rows, array $header, $delimiter = ',')
         {
             if (count($header) > 0)
                 array_unshift($rows, $header);
@@ -24,7 +24,7 @@ class Csv
             fclose($stream);
         }
 
-        public function render(array $header = [], array $rows, $fileName = 'export.csv')
+        public function render(array $header, array $rows, $fileName = 'export.csv')
         {
             $this->create($rows, $header);
 
